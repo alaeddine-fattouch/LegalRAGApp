@@ -1,0 +1,10 @@
+[project]
+name = "legal-rag-app"
+requires-python = "==3.11.7"
+version = "0.1.0"
+dependencies = [
+    "langchain==0.*",
+    "langchain-community==0.*",
+    "pypdf>=3.*",
+    "reportlab>=4.*",
+]
