@@ -45,7 +45,7 @@ Party B
 
     with open(text_file, 'w', encoding='utf-8') as f:
         f.write(text_content)
-    print(f"Created text file: {text_file}")
+    print(f'Created text file: {text_file}')
 
     pdf_file = test_dir / 'sample.pdf'
     doc = SimpleDocTemplate(str(pdf_file), pagesize=letter)
@@ -88,7 +88,7 @@ Party B'''
         story.append(Paragraph('<br/>', styles['Normal']))
 
     doc.build(story)
-    print(f"Created PDF file: {pdf_file}")
+    print(f'Created PDF file: {pdf_file}')
 
 
 if __name__ == '__main__':
