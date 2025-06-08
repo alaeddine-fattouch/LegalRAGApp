@@ -14,7 +14,7 @@ def create_test_files():
     test_dir.mkdir(exist_ok=True)
 
     text_file = test_dir / 'sample.txt'
-    text_content = """LEGAL DOCUMENT SAMPLE
+    text_content = '''LEGAL DOCUMENT SAMPLE
 
 CONTRACT AGREEMENT
 
@@ -41,7 +41,7 @@ Party A
 
 _________________
 Party B
-"""
+'''
 
     with open(text_file, 'w', encoding='utf-8') as f:
         f.write(text_content)
@@ -56,7 +56,7 @@ Party B
     story.append(title)
     story.append(Paragraph('<br/><br/>', styles['Normal']))
 
-    content = """CONTRACT AGREEMENT
+    content = '''CONTRACT AGREEMENT
 
 This agreement is made and entered into on this day, between Party A and Party B.
 
@@ -80,7 +80,7 @@ _________________
 Party A
 
 _________________
-Party B"""
+Party B'''
 
     for paragraph in content.split('\n\n'):
         p = Paragraph(paragraph, styles['Normal'])
