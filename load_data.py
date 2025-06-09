@@ -1,5 +1,9 @@
-from langchain_community.document_loaders import PyPDFLoader, TextLoader
+from __future__ import annotations
+
 from langchain.schema import Document
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_community.document_loaders import TextLoader
+
 
 def load_text_file(file_path: str, encoding: str = 'utf-8') -> Document:
     """ Loads a text file and returns a Document object.
