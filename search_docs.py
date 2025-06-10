@@ -1,16 +1,19 @@
+from __future__ import annotations
+
 from pathlib import Path
 
-from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Chroma
 
-from load_data import load_text_file, load_pdf_file
 from index_data import create_index
+from load_data import load_pdf_file
+from load_data import load_text_file
 
 
 def search_legal_docs(
     query: str,
     file_paths: list[str],
-    k: int = 4
+    k: int = 4,
 ) -> list:
     """Search through legal documents for relevant information.
 
@@ -31,7 +34,7 @@ def search_legal_docs(
         elif path.suffix.lower() == '.txt':
             doc = load_text_file(str(path))
             documents.append(doc)
-    
+
     vector_store = create_index(documents)
     return vector_store.similarity_search(query, k=k)
 
@@ -39,14 +42,14 @@ def search_legal_docs(
 def main():
     test_files = [
         'test_files/sample.txt',
-        'test_files/sample.pdf'
+        'test_files/sample.pdf',
     ]
-    
+
     results = search_legal_docs(
         'What are the payment terms?',
-        test_files
+        test_files,
     )
-    
+
     for doc in results:
         print('\nRelevant chunk:')
         print(doc.page_content)
@@ -54,4 +57,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main() 
+    main()

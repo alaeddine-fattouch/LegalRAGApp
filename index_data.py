@@ -1,14 +1,17 @@
+from __future__ import annotations
+
 from typing import List
 
 from langchain.schema import Document
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import Chroma
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 
-from load_data import load_text_file, load_pdf_file
+from load_data import load_pdf_file
+from load_data import load_text_file
 
 
-def create_index(docs: List[Document]) -> Chroma:
+def create_index(docs: list[Document]) -> Chroma:
     """Creates a vectorstore index from a list of Document objects.
 
     Args:
@@ -20,7 +23,7 @@ def create_index(docs: List[Document]) -> Chroma:
     embeddings = HuggingFaceEmbeddings(
         model_name='nlpaueb/legal-bert-base-uncased',
         model_kwargs={'device': 'cpu'},
-        encode_kwargs={'normalize_embeddings': True}
+        encode_kwargs={'normalize_embeddings': True},
     )
 
     text_splitter = RecursiveCharacterTextSplitter(
@@ -35,7 +38,7 @@ def create_index(docs: List[Document]) -> Chroma:
         documents=split_docs,
         embedding=embeddings,
         persist_directory='chroma_db',
-        collection_name='legal_docs'
+        collection_name='legal_docs',
     )
     vector_store.persist()
 
