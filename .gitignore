@@ -1,6 +1,9 @@
 # Test files
 test_files/
 
+# Vector store
+chroma_db/
+
 # Python
 __pycache__/
 *.py[cod]
