@@ -20,7 +20,7 @@ contextualize_q_prompt = ChatPromptTemplate.from_messages(
 
 legal_q_system_prompt = (
     'You are a legal expert specializing in law. Using the provided legal excerpts {context}, '
-    'answer the question. If relevant legal texts are not included or if the request is not related to Tunisian law, '
+    'answer the question. If relevant legal texts are not included or if the request is not related to law, '
     'indicate that you do not have the necessary references to answer and therefore cannot provide a response. '
     'To the extent possible, answer the question with the available information. Be as detailed as necessary in your response. '
     'If you cannot answer the question, explain why.'

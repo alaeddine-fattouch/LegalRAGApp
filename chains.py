@@ -21,7 +21,7 @@ def load_chain(file_name: str, file_type: str):
         st.write('File type is not supported!')
         st.stop()
 
-    retriever = create_index(docs)
+    retriever = create_index(docs).as_retriever()
 
     llm = ChatMistralAI(model='mistral-large-latest')
     history_aware_retriever = create_history_aware_retriever(
