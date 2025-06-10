@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 COPY pyproject.toml ./
 COPY uv.lock ./
-RUN pip install --upgrade pip && pip install uv && uv sync --system
+RUN pip install --upgrade pip && pip install uv && uv sync --locked --no-install-project
 
 COPY . .
 
