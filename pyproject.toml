@@ -7,4 +7,7 @@ dependencies = [
     "langchain-community==0.*",
     "pypdf>=3.*",
     "reportlab>=4.*",
+    "sentence-transformers==2.*",
+    "chromadb>=0.*",
+    "torch>=2.2.0",
 ]
