@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import streamlit as st
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains.history_aware_retriever import create_history_aware_retriever
