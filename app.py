@@ -1,11 +1,14 @@
 from __future__ import annotations
 
 import os
+import sys
 
+import pysqlite3
 import streamlit as st
 
 from chains import load_chain
 from memory import load_memory
+sys.modules['sqlite3'] = pysqlite3
 
 st.set_page_config(layout='wide')
 st.title('💬 Law Chatbot')
